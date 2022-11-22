@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,8 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterOutlet
   ]
 })
 export class AppComponent implements OnInit{
@@ -21,7 +20,7 @@ export class AppComponent implements OnInit{
     name: FormControl<string>;
     lastName: FormControl<string>;
     firstName: FormControl<string>;
-    phoneNumber?: FormControl<Number>;
+    phoneNumber?: FormControl<number>;
   }>;
 
   constructor(private _fb: FormBuilder) {}
