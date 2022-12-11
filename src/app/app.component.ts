@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterOutlet } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +14,10 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    RouterOutlet
+    RouterOutlet,
+    MatButtonModule,
+    MatIconModule,
+    CommonModule
   ]
 })
 export class AppComponent implements OnInit{
