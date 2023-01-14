@@ -1,0 +1,16 @@
+@use "../plaletes" as plaletes;
+@use "@angular/material" as mat;
+
+$app-primary: mat.define-palette(plaletes.$primary, 700);
+$app-accent: mat.define-palette(plaletes.$secondary);
+$app-warn: mat.define-palette(mat.$red-palette);
+
+$app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+      warn: $app-warn,
+    ),
+  )
+);

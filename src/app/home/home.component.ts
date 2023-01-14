@@ -6,19 +6,32 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { StyleManager } from '../style-manager.service';
 
 @Component({
   standalone: true,
   template: `
     <div>
       <h1>Angular Material Theming System: Complete Guide</h1>
+      <button
+        mat-icon-button
+        (click)="toggleDarkTheme()"
+        class="theme-toggle"
+        aria-label="Toggle Dark Theme"
+      >
+        <mat-icon>{{ isDark ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      </button>
       <div class="demo-buttons">
         <button mat-raised-button color="primary">Raised</button>
         <button mat-raised-button color="accent">Accent</button>
         <button mat-raised-button color="warn">Warn</button>
       </div>
 
-      <mat-form-field appearance="fill" class="example-form-field" color="primary">
+      <mat-form-field
+        appearance="fill"
+        class="example-form-field"
+        color="primary"
+      >
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="datepicker" />
         <mat-datepicker-toggle
@@ -101,4 +114,13 @@ import { MatInputModule } from '@angular/material/input';
     CommonModule,
   ],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  isDark = this.styleManager.isDark;
+
+  constructor(private styleManager: StyleManager) {}
+
+  toggleDarkTheme() {
+    this.styleManager.toggleDarkTheme();
+    this.isDark = !this.isDark;
+  }
+}

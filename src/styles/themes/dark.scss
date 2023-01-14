@@ -1,0 +1,12 @@
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$pink-palette),
+      accent: mat.define-palette(mat.$blue-grey-palette),
+    ),
+  )
+);
+
+@media (prefers-color-scheme: dark) {
+  @include mat.all-component-themes($dark-theme);
+}
